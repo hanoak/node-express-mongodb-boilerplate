@@ -1,0 +1,32 @@
+{
+  "name": "express-mongodb-boilerplate",
+  "version": "1.0.0",
+  "description": "This is a boilerplate for Express.js app with mongodb in Javascript.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanoak/node-express-mongodb-boilerplate.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Javascript",
+    "Express.js",
+    "Mongodb",
+    "Mongoose"
+  ],
+  "author": "Hanoak",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/hanoak/node-express-mongodb-boilerplate/issues"
+  },
+  "homepage": "https://github.com/hanoak/node-express-mongodb-boilerplate#readme"
+}

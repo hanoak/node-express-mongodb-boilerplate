@@ -47,5 +47,8 @@
     "hooks": {
       "pre-commit": "npm run precommit"
     }
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }

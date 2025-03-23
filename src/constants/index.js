@@ -10,6 +10,11 @@ const constants = {
     BAD_REQUEST: 400,
     UNPROCESSABLE_REQ: 422,
     INTERNAL_ERROR: 500,
+    NOT_FOUND: 404,
+  },
+  LOGS: {
+    APP_ERROR: "Error while starting the server.",
+    ROUTE_ERROR: "Sorry, the requested resource is not available.",
   },
 };
 

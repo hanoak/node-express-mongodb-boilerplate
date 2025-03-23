@@ -4,10 +4,13 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import config from "./config/index.js";
+import connectToDatabase from "./database.js";
 import { LOGS } from "./constants/index.js";
 import requestHeadersMiddleware from "./middlewares/req-header.middleware.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import unmatchedRoutesMiddleware from "./middlewares/unmatched-routes.middleware.js";
+
+import postsRouter from "./routes/posts.route.js";
 
 try {
   const PORT = config.PORT || 5000;
@@ -24,6 +27,7 @@ try {
   });
 
   //Add your app's routes here
+  app.use("/posts", postsRouter);
 
   //For unmatched route patterns
   app.use(unmatchedRoutesMiddleware);
@@ -31,9 +35,12 @@ try {
   //Global error handler middleware
   app.use(errorMiddleware);
 
-  app.listen(PORT, () => {
-    console.info(`Serve started at port: ${PORT}`);
-  });
+  (async () => {
+    await connectToDatabase();
+    app.listen(PORT, () => {
+      console.info(`Serve started at port: ${PORT}`);
+    });
+  })();
 } catch (e) {
   console.error(LOGS.APP_ERROR);
   console.error(e);

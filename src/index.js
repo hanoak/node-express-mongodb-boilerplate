@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import config from "./config/index.js";
-import constants from "./constants/index.js";
+import { LOGS } from "./constants/index.js";
 
 import { requestHeadersMiddleware } from "./middlewares/req-header.middleware.js";
 
@@ -32,6 +32,6 @@ try {
     console.info(`Serve started at port: ${PORT}`);
   });
 } catch (e) {
-  console.error(constants.LOGS.APP_ERROR);
+  console.error(LOGS.APP_ERROR);
   console.error(e);
 }

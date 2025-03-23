@@ -1,4 +1,4 @@
-export const requestHeadersMiddleware = (req, res, next) => {
+const requestHeadersMiddleware = (req, res, next) => {
   if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     console.info("coming here.");
@@ -6,3 +6,5 @@ export const requestHeadersMiddleware = (req, res, next) => {
   }
   next();
 };
+
+export default requestHeadersMiddleware;

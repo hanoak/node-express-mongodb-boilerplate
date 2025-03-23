@@ -5,9 +5,9 @@ import cors from "cors";
 import helmet from "helmet";
 import config from "./config/index.js";
 import { LOGS } from "./constants/index.js";
-import { requestHeadersMiddleware } from "./middlewares/req-header.middleware.js";
+import requestHeadersMiddleware from "./middlewares/req-header.middleware.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
-import { unmatchedRoutesMiddleware } from "./middlewares/unmatched-routes.middleware.js";
+import unmatchedRoutesMiddleware from "./middlewares/unmatched-routes.middleware.js";
 
 try {
   const PORT = config.PORT || 5000;

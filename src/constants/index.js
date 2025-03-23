@@ -34,4 +34,7 @@ export const LOGS = {
   APP_ERROR: "Error while starting the server.",
   ROUTE_ERROR: "Sorry, the requested resource is not available.",
   POSTS_ERROR: "Error while fetching posts.",
+  ADD_POST_ERROR: "Error while adding a post.",
+  DELETE_POST_ERROR: "Error while deleting a post.",
+  POST_DELETED: "Post deleted.",
 };

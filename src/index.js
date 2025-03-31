@@ -2,6 +2,7 @@ import "dotenv/config";
 import "express-async-errors";
 import express from "express";
 import cors from "cors";
+import mongoSanitize from "express-mongo-sanitize";
 import helmet from "helmet";
 import config from "./config/index.js";
 import connectToDatabase from "./database.js";
@@ -21,6 +22,7 @@ try {
   app.use(helmet());
   app.use(cors({ origin: "*" }));
   app.use(express.json());
+  app.use(mongoSanitize());
   app.use(loggerMiddleware);
   app.use(requestHeadersMiddleware);
 

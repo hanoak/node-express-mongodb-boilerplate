@@ -19,13 +19,25 @@ try {
   const PORT = config.PORT || 5000;
   const app = express();
 
+  // Secure HTTP headers
   app.use(helmet());
+
+  // Enable cors
   app.use(cors({ origin: "*" }));
+
+  // Parse json request body
   app.use(express.json());
+
+  // Request data sanitization
   app.use(mongoSanitize());
+
+  // Request logger
   app.use(loggerMiddleware);
+
+  // Default request headers
   app.use(requestHeadersMiddleware);
 
+  //Default route example
   app.get("/", (req, res) => {
     res.status(200).send({ msg: "Hello, world!" });
   });

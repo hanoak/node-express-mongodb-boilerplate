@@ -9,6 +9,7 @@ import { LOGS } from "./constants/index.js";
 import requestHeadersMiddleware from "./middlewares/req-header.middleware.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import unmatchedRoutesMiddleware from "./middlewares/unmatched-routes.middleware.js";
+import logger from "./logger/index.js";
 
 import postsRouter from "./routes/posts.route.js";
 
@@ -38,10 +39,10 @@ try {
   (async () => {
     await connectToDatabase();
     app.listen(PORT, () => {
-      console.info(`Serve started at port: ${PORT}`);
+      logger.info(`Serve started at port: ${PORT}`);
     });
   })();
 } catch (e) {
-  console.error(LOGS.APP_ERROR);
-  console.error(e);
+  logger.error(LOGS.APP_ERROR);
+  logger.error(e?.message);
 }

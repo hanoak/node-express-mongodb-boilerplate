@@ -9,6 +9,7 @@ import { LOGS } from "./constants/index.js";
 import requestHeadersMiddleware from "./middlewares/req-header.middleware.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import unmatchedRoutesMiddleware from "./middlewares/unmatched-routes.middleware.js";
+import loggerMiddleware from "./middlewares/logger.middleware.js";
 import logger from "./logger/index.js";
 
 import postsRouter from "./routes/posts.route.js";
@@ -20,7 +21,7 @@ try {
   app.use(helmet());
   app.use(cors({ origin: "*" }));
   app.use(express.json());
-
+  app.use(loggerMiddleware);
   app.use(requestHeadersMiddleware);
 
   app.get("/", (req, res) => {
